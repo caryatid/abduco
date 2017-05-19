@@ -10,10 +10,10 @@ INCS = -I.
 LIBS = -lc -lutil
 
 CPPFLAGS = -D_POSIX_C_SOURCE=200809L -D_XOPEN_SOURCE=700
-CFLAGS += -I../musl/include -std=c99 -pedantic -Wall ${INCS} -DVERSION=\"${VERSION}\" -DNDEBUG ${CPPFLAGS}
-LDFLAGS += -L../musl/lib ${LIBS} -static
+CFLAGS += -static -std=c99 -pedantic -Wall ${INCS} -DVERSION=\"${VERSION}\" -DNDEBUG ${CPPFLAGS}
+LDFLAGS += ${LIBS}
 
 DEBUG_CFLAGS = ${CFLAGS} -UNDEBUG -O0 -g -ggdb
 
-CC ?= cc
+CC ?= ../../install/bin/musl-gcc
 STRIP ?= strip
