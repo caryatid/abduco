@@ -21,8 +21,8 @@ config.h:
 ${OBJ}: config.h config.mk
 
 abduco: ${OBJ}
-	@echo CC -o $@
-	@${CC} -o $@ ${OBJ} ${LDFLAGS}
+	@echo $(CC) -o $@
+	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
 debug: clean
 	@make CFLAGS='${DEBUG_CFLAGS}'
